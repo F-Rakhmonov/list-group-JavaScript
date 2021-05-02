@@ -1,85 +1,80 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="bootstrap.min.css">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-   
-   
-<div class="container mt-5 w-50">
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+  <div class="container mt-5 w-50">
     <form id="form">
-        <div id="text" class="text-center"></div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Name</label>
-          <input type="text" id="carname" class="form-control" id="exampleInputEmail1" >
-          
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Model</label>
-          <input type="text" id="model" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Year</label>
-            <input type="text" id="year" class="form-control" id="exampleInputPassword1">
-          </div>
-          <button type="submit" id="btn"  class="btn btn-primary">Submit</button>
+      <div id="text" class="text-center"></div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" id="carname" class="form-control" id="exampleInputEmail1">
 
-          <ul class="list-group mt-5">
-           
-          </ul>
-        
-      </form>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Model</label>
+        <input type="text" id="model" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Year</label>
+        <input type="text" id="year" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button type="submit" id="btn" class="btn btn-primary">Submit</button>
 
-</div>
+      <ul class="list-group mt-5">
 
+      </ul>
 
+    </form>
 
+  </div>
 
+  <script>
+    const form = document.querySelector('#form');
+    const carname = document.querySelector("#carname");
+    const model = document.querySelector('#model');
+    const year = document.querySelector('#year');
+    const text = document.querySelector('#text');
+    const lists = document.querySelector('.list-group')
 
+    form.addEventListener('submit', myFunc);
 
+    function myFunc(e) {
 
-   
-
-    <script>
-      const form=document.querySelector('#form');
-const carname = document.querySelector("#carname");
-const model=document.querySelector('#model');
-const year=document.querySelector('#year');
-const text=document.querySelector('#text');
-const lists=document.querySelector('.list-group')
-
-form.addEventListener('submit',myFunc);
-
-function myFunc(e){
-  
-  e.preventDefault();
-  if(carname.value==='' || model.value==='' || year.value===''){
-    text.classList.add('bg-danger');
-   text.innerHTML='Hamma maydonlar to\'ldirilishi shart';
-   text.style.color='white';
-   setTimeout(() => {text.remove()}, 3000);
+      e.preventDefault();
+      if (carname.value === '' || model.value === '' || year.value === '') {
+        text.classList.add('bg-danger');
+        text.innerHTML = 'Hamma maydonlar to\'ldirilishi shart';
+        text.style.color = 'white';
+        setTimeout(() => { text.remove() }, 3000);
 
 
-  }else{
-    const li =document.createElement('li');
-    li.appendChild(document.createTextNode(
-      `${carname.value} ${model.value} ${year.value}`
-    ));
-    lists.appendChild(li);
+      } else {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(
+          `${carname.value} ${model.value} ${year.value}`
+        ));
+        lists.appendChild(li);
 
-    carname.value='';
-    model.value='';
-    year.value='';
-  }
-}
+        carname.value = '';
+        model.value = '';
+        year.value = '';
+      }
+    }
 
 
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
